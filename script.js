@@ -14,6 +14,8 @@ form.addEventListener("submit", async (e) => {
   loading.classList.remove("d-none");
   let data = await trackHandles(handlesString);
   if (data.status !== "OK") {
+    submit.classList.remove("d-none");
+    loading.classList.add("d-none");
     return alert(data.message);
   }
   createTable(data.result);
