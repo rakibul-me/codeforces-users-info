@@ -32,7 +32,10 @@ const trackHandles = async (spaceSeparatedHandles) => {
       { method: "GET" }
     );
     if (!result.ok) {
-      return { status: "ERROR", message: "Something went wrong" };
+      return {
+        status: "ERROR",
+        message: result.comment || "Something went wrong",
+      };
     }
     result = await result.json();
     if (result.status === "FAILED") {
