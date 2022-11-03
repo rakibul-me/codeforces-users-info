@@ -31,12 +31,6 @@ const trackHandles = async (spaceSeparatedHandles) => {
       "https://codeforces.com/api/user.info?handles=" + handles.join(";"),
       { method: "GET" }
     );
-    if (!result.ok) {
-      return {
-        status: "ERROR",
-        message: result.comment || "Something went wrong",
-      };
-    }
     result = await result.json();
     if (result.status === "FAILED") {
       return {
