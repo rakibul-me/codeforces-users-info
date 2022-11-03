@@ -3,6 +3,7 @@ const result = document.querySelector("#result");
 const handles = document.querySelector("#handles");
 const submit = document.querySelector("#submit");
 const loading = document.querySelector("#loading");
+const isSorted = document.querySelector("#isSorted");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -18,7 +19,11 @@ form.addEventListener("submit", async (e) => {
     loading.classList.add("d-none");
     return alert(data.message);
   }
-  createTable(data.result);
+  createTable(
+    isSorted.checked
+      ? data.result.sort((a, b) => (b.rating || 0) - (a.rating || 0))
+      : data.result
+  );
   submit.classList.remove("d-none");
   loading.classList.add("d-none");
 });
@@ -107,21 +112,21 @@ const createTable = (data) => {
 };
 
 const colorCodedByRating = (content, rating, isName) => {
-  if (rating >= 2900) {
+  if (rating >= 3000) {
     return isName
       ? `<span style="color: black;">${
           content[0]
         }</span><span style="color: red;">${content.slice(1)}</span>`
       : `<span style="color: red;">${content}</span>`;
-  } else if (rating >= 2600 && rating < 2900) {
+  } else if (rating >= 2600 && rating < 3000) {
     return `<span style="color: red;">${content}</span>`;
   } else if (rating >= 2400 && rating < 2600) {
     return `<span style="color: red;">${content}</span>`;
   } else if (rating >= 2300 && rating < 2400) {
     return `<span style="color: orange;">${content}</span>`;
-  } else if (rating >= 2200 && rating < 2300) {
+  } else if (rating >= 2100 && rating < 2300) {
     return `<span style="color: orange;">${content}</span>`;
-  } else if (rating >= 1900 && rating < 2200) {
+  } else if (rating >= 1900 && rating < 2100) {
     return `<span style="color: violet;">${content}</span>`;
   } else if (rating >= 1600 && rating < 1900) {
     return `<span style="color: blue;">${content}</span>`;
