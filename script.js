@@ -127,11 +127,11 @@ const colorCodedByRating = (content, rating, isName) => {
   } else if (rating >= 2100 && rating < 2300) {
     return `<span style="color: orange;">${content}</span>`;
   } else if (rating >= 1900 && rating < 2100) {
-    return `<span style="color: violet;">${content}</span>`;
+    return `<span style="color: #a0a;">${content}</span>`;
   } else if (rating >= 1600 && rating < 1900) {
     return `<span style="color: blue;">${content}</span>`;
   } else if (rating >= 1400 && rating < 1600) {
-    return `<span style="color: cyan;">${content}</span>`;
+    return `<span style="color: #03a89e;">${content}</span>`;
   } else if (rating >= 1200 && rating < 1400) {
     return `<span style="color: green;">${content}</span>`;
   } else if (rating >= 0 && rating < 1200) {
