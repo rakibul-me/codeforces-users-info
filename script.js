@@ -95,9 +95,13 @@ const createTable = (data) => {
     )}</td><td>${colorCodedByRating(
       item.rank || "",
       item.rating || 0
-    )}</td><td>${item.contribution}</td><td>${item.maxRating || ""}</td><td>${
-      item.maxRank || ""
-    }</td><td>${item.city || ""}</td><td>${
+    )}</td><td>${item.contribution}</td><td>${colorCodedByRating(
+      item.maxRating || "",
+      item.maxRating || 0
+    )}</td><td>${colorCodedByRating(
+      item.maxRank || "",
+      item.maxRating || 0
+    )}</td><td>${item.city || ""}</td><td>${
       item.country || ""
     }</td><td><a href="https://codeforces.com/profile/${
       item.handle
